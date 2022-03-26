@@ -6,24 +6,34 @@ using namespace std;
   
  
 void solve(){
-string st;
-cin>>st;
-map<char,int>m;
-loop(i,0,st.length())
-m[st[i]]++;
+ int a[26];
+    for (int i = 0; i < 26; i++)
+    {
+      a[i] = 0;
+    }
+    string s;
+    cin >> s;
+    string ans = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+      a[s[i] - 97]++;
+    }
+    for (int i = 0; i < s.length(); i++)
+    {
+      if (a[s[i] - 97] == 1)
+      {
+        s = s.substr(i, s.length() - i);
+        break;
+      }
+      else
+      {
+        a[s[i] - 97]--;
+      }
+    }
+    cout << s << "\n";
+  }
 
-loop(i,0,st.length()){
-    if(m[st[i]]=1)break;
-      
-    else
-    m[st[i]]--;
-}
-loop(i,0,st.length())
-cout<<st[i];
-cout<<"\n";
 
-
-}
 
 
 
